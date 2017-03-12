@@ -81,7 +81,8 @@ Upload these 3 files to the [`editors`](editors/) folder.
 
 What terminal editor will be your preferred choice of use? How did you make your decision?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> I'll use Vim because my closest friends utilize Vim. They recommended it and if I ever needed help, I'd know who to
+ reach out to.
 
 --
 
@@ -89,6 +90,13 @@ What terminal editor will be your preferred choice of use? How did you make your
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> [PyCharm](https://www.jetbrains.com/pycharm/) because it's what I'm most familiar with from past Python work at 
+[Tesla](http://tesla.com) and [Boosted](http://boostedboards.com). Two interesting features are that you can run your code
+in the IDE through the run editor and you can easily see a list of marked #TODOs so you know what code to fix before 
+making a commit or merge. Some shortcuts in Pycharm are that you can easily navigate through your module, classes and 
+functions by holding down CMD + clicking the name of that module, class or function. You can also click CMD + \[ or 
+CMD + \] to respectively go forwards or backwards between screens visited. I customized my editor by using the Darcula 
+theme and changing the font size to be larger. Additionally, I utilize the Markdown plugin to write markdown in PyCharm.
+I think it's helpful to recognize the different Markdown features through unique colors.
 
  
