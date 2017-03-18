@@ -146,7 +146,13 @@ def not_bad(s):
     "It's bad yet not"
     """
 
-    raise NotImplementedError
+    not_index = s.find("not")
+    bad_index = s.find("bad")
+    if bad_index > not_index:
+        new_string = s[0:not_index] + "good" + s[bad_index + len("bad"):]
+        return new_string
+    else:
+        return s
 
 
 def front_back(a, b):
@@ -165,4 +171,5 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
+
     raise NotImplementedError
