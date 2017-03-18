@@ -171,5 +171,29 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
+    def evaluate_front(word):
+        """
+        Gets the proper front half of a word
+        :param word:
+        :return: part_front
+        """
+        if len(word) % 2 == 0:
+            part_front = word[0:int(len(word)/2)]
+        else:
+            part_front = word[0:int(len(word)/2)+1]
+        return part_front
 
-    raise NotImplementedError
+    def evaluate_back(original, front_word):
+        """
+        Gets the proper back half of a word
+        :param original:
+        :param front_word:
+        :return: back_half of a word
+        """
+        return original[original.find(front_word[-1])+1:]
+
+    a_front = evaluate_front(a)
+    b_front = evaluate_front(b)
+    a_back = evaluate_back(a, a_front)
+    b_back = evaluate_back(b, b_front)
+    return a_front + b_front + a_back + b_back
