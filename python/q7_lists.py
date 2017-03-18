@@ -81,7 +81,14 @@ def remove_adjacent(nums):
     >>> remove_adjacent([])
     []
     """
-    raise NotImplementedError
+    for index, num in enumerate(nums):
+        try:
+            if nums[index+1] == num:
+                nums.pop(index+1)
+        except IndexError:
+            if nums[index] == nums[index-1]:
+                nums.pop(index)
+    return nums
 
 
 def linear_merge(list1, list2):
@@ -98,4 +105,10 @@ def linear_merge(list1, list2):
     >>> linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb'])
     ['aa', 'aa', 'aa', 'bb', 'bb']
     """
-    raise NotImplementedError
+    sorted_list = []
+    while list1 and list2:
+        if list1[0] < list2[0]:
+            sorted_list.append(list1.pop(0))
+        else:
+            sorted_list.append(list2.pop(0))
+    return sorted_list + list1 + list2
