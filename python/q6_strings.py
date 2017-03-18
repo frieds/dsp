@@ -1,3 +1,11 @@
+import logging
+from logger import setup_logger
+setup_logger()
+logger = logging.getLogger(__name__)
+logger.addHandler(logging.NullHandler())
+logger.setLevel(logging.DEBUG)  # sets the logging level for this script
+
+
 # Based on materials copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 
@@ -18,7 +26,12 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
+
+    if count >= 10:
+        ret_value = 'Number of donuts: many'
+    else:
+        ret_value = 'Number of donuts: ' + str(count)
+    return ret_value
 
 
 def both_ends(s):
@@ -37,7 +50,11 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+    if len(s) < 2:
+        ret_value = ''
+    else:
+        ret_value = s[0:2] + s[len(s)-2:]
+    return ret_value
 
 
 def fix_start(s):
@@ -56,7 +73,18 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
-    raise NotImplementedError
+    first_character = s[0]
+    new_string = ""
+    skip_count = 0
+    for letter in s:
+        if letter == first_character and skip_count == 0:
+            skip_count += 1
+            new_string += letter
+        elif letter == first_character and skip_count >= 1:
+            new_string += "*"
+        else:
+            new_string += letter
+    return new_string
 
 
 def mix_up(a, b):
@@ -74,7 +102,7 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
-    raise NotImplementedError
+    return b[0:2] + a[2:] + " " + a[0:2] + b[2:]
 
 
 def verbing(s):
@@ -91,7 +119,13 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+    if s[len(s)-3:] == "ing":
+        ret_value = s + "ly"
+    elif len(s) >= 3:
+        ret_value = s + "ing"
+    else:
+        ret_value = s
+    return ret_value
 
 
 def not_bad(s):
@@ -111,6 +145,7 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
+
     raise NotImplementedError
 
 
