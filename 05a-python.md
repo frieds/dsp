@@ -33,10 +33,14 @@ indexing and slicing. Lists can contain any date type while sets cannot contain 
 dictionaries. Unlike lists, set objects support many mathematical operations such as union, intersection,
  difference and symmetric difference.
  An example of a list: 
- `[1, 2, 2, 4, [1, 2], {1: 1}]`
- An example of a set:
-  `{1, 2, 4}`
- Generally you'll get better performance for finding an element in a set versus a list if you're just searching for
+```
+[1, 2, 2, 4, [1, 2], {1: 1}]
+```
+>>An example of a set:
+```
+{1, 2, 4}
+```
+>> Generally you'll get better performance for finding an element in a set versus a list if you're just searching for
  membership. The reason for this is sets are implemented using hash tables; so in the background there'd be a search for 
  the object determined by its hash, and this operation's performance does not depend on size of the set. To search for 
  membership in a list, up to the whole list may need to be search, which will take an awful lot of time as the list 
@@ -48,7 +52,16 @@ dictionaries. Unlike lists, set objects support many mathematical operations suc
 
 Describe Python's `lambda`. What is it, and what is it used for? Give at least one example, including an example of using a `lambda` in the `key` argument to `sorted`.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Python's *lambda* is a tool for building functions. *Lambda* also allows you to pass the body of functions to other
+ functions without using the *def* keyword. Using *lambda* can be a more concise way of implementing a function rather 
+ than writing two distinct functions using the *def* keyword. However, *lambda* should only be used for complex one-time 
+ anonymous functions in your scripts. Below is an example of a miniaturized phone book that 
+ records people's names (first and last) along with their phone number. We can sort the phone book by people's first names.
+```
+>>> phone_book = {('Friedman', 'Daniel'): 5551234567, ('Cohen', 'Jake'): 5551245363, ('Strauss', 'Amanda'): 5533233235}
+>>> sorted(phone_book.items(), key=lambda x: x[0][1])
+[(('Strauss', 'Amanda'), 5533233235), (('Friedman', 'Daniel'), 5551234567), (('Cohen', 'Jake'), 5551245363)]
+```
 
 ---
 
