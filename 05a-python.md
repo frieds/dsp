@@ -12,7 +12,15 @@ For quick and easy interactive practice with Python, many people enjoy [Codecade
 
 How are Python lists and tuples similar and different? Which will work as keys in dictionaries? Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Lists and tuples both can store a sequence of values. In both lists and tuples, you can index the values by
+integers and you can use the slice operator to get a range of elements. In both, the values can be of any type. In both,
+ you can nest additional sequences inside. However, lists are mutable - so the values can be changed after the list is 
+ declared. However, tuples are immutable - so the values inside cannot be modified.  Lists cannot be used as keys in a 
+ dictionary because lists are mutable. So the issue would arise if you had a list as a key in a dictionary, and since 
+ that list is mutable, you'd try to change it. However, when you change the key, that key is now in the wrong bucket 
+ as originally intended and a KeyError would occur.  When Python tries to implement a hash table for your dictionary 
+ with a list as a key, you'll immediately get a TypeError that the type *list*, as the key, is unhashable. However, 
+ tuples can be used as keys in a dictionary because they are immutable.  
 
 ---
 
