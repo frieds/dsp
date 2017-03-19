@@ -28,7 +28,19 @@ integers and you can use the slice operator to get a range of elements. In both,
 
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Lists are different than sets in that lists are ordered collections and can contain duplicate elements. Lists support
+indexing and slicing. Lists can contain any date type while sets cannot contain mutable objects such as lists and 
+dictionaries. Unlike lists, set objects support many mathematical operations such as union, intersection,
+ difference and symmetric difference.
+ An example of a list: 
+ `[1, 2, 2, 4, [1, 2], {1: 1}]`
+ An example of a set:
+  `{1, 2, 4}`
+ Generally you'll get better performance for finding an element in a set versus a list if you're just searching for
+ membership. The reason for this is sets are implemented using hash tables; so in the background there'd be a search for 
+ the object determined by its hash, and this operation's performance does not depend on size of the set. To search for 
+ membership in a list, up to the whole list may need to be search, which will take an awful lot of time as the list 
+ grows.
 
 ---
 
