@@ -69,7 +69,60 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> List comprehension provide a concise way to create lists. You can create a list comprehension statement in one line,
+while the alternative may be to create a multi-line function with the def keyword. However, list comprehension are 
+more difficult to debug because you can't add a print statement inside the body. Let's say we want to create a list
+of all the numbers evenly divisible by 3 from 0 to 20. We can use list comprehensions:
+```
+>>> [x for x in range(0, 20) if x%3==0]
+[0, 3, 6, 9, 12, 15, 18]
+```
+>> We can also use the filter function. This built-in Python function constructs an iterator from those elements of the
+iterable for which our function would return true. So in our example, we'll only return elements whose remainder is 0
+when divided by 3.
+```
+>>> list(filter(lambda x: x%3==0, range(0,20)))
+[0, 3, 6, 9, 12, 15, 18]
+```
+>>> Here's another example of a list comprehension in which we create a list of tuples with a pair of #, square
+```
+>>> [(x, x**2) for x in range(0,6)]
+[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+```
+>>> We can do the same thing with lambda and the map function. The map function is a built in Python function that
+applies a specified function to each element in our iterable, in our case the range of 0 to 6. The lambda function
+ creates an inline function in a single expression. The value of this expression, in our case a tuple of (x, x**2) 
+ is what the function returns when invoked.
+```
+>>> list(map(lambda x: (x, x**2), range(0,6)))
+[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+```
+>>>In the instances above that we use lambda, we do a function call in order to calculate each list item. This would cause
+our statement to run rather slow. By comparison, the first list comprehension example is much faster.
+ [Guido recommends](https://www.python.org/doc/essays/list2str/) to avoid calling lambda inside loops so our last
+  example with map and lambda is likely to have a slower runtime than the corresponding list comprehension. Generally 
+  using map(), filter() or reduce() with a built-in function is faster than a for loop with in-line code though. The map 
+  function is a built in Python function that applies a specified function to each element in an iterable. 
+>>> Sets are an unordered collection with no duplicate elements. Set comprehensions are constructed using the same 
+principles as list comprehensions; however, the resulting sequence is a set. Here's an example:
+```
+>>> b = {x for x in 'comprehensions' if x not in 'oei'}
+>>> b
+{'p', 'r', 'n', 's', 'c', 'h', 'm'}
+>>> type(b)
+<class 'set'>
+```
+>>> Dictionary comprehensions evaluate to a dictionary. Remember the example from above that created a list of tuples, 
+inside each tuple a (number, number&ast;number). We can create something similar using a dictionary comprehension. Note 
+below how x: x&ast;&ast;2 is in the format of a key:value pair while using the list comprehension expression above, we used
+(x, x**2) to generate tuples instead.
+```
+>>> c = x: x**2 for x in range(0,6)}
+>>> c
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+>>> type(c)
+<class 'dict'>
+```
 
 ---
 
